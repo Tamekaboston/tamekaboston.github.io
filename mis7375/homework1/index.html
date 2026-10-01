@@ -1,10 +1,229 @@
-!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<!--
+  Program Name: index.html
+  Author: Tameka Boston
+  Date Created: 2026-09-30
+  Date Last Edited: 2026-09-30
+  Version: 1.0
+  Description: Homework1
+-->
+<html lang = "en">
   <head>
+    <meta charset ="utf-8">
+    
     <title>MIS 7375 - Homework 1</title>
+    <!-- Load CSS style -->
+    <link href = "style.css" rel = "stylesheet">
   </head>
    <body>
-     <h1>Hello World!</h1>
-     <p>This is Homework 1 for MIS 7375.</p>
+     <div id ="header">
+       <table width = 100%>
+         <tr>
+           <!-- Making the banner with the logo and company -->
+           <td><img src ="logo.png" alt="logo" width ="80" height ="80"></td>
+           <td><h1>Sugarland Medical</h1></td>
+           <td class="today"> Today is: <span id="today"></span></td>
+         </tr>
+       </table>
+       <!-- In-line JavaScript to build the viewer's day and date -->
+       <script>
+         var d = new Date(), n =d.getDate();
+         var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
+         var mons = ["Jan","Feb","March","April","May","June","July","Aug","Sept","Oct","Nov","Dec"];
+         var s = (n%10==1 && n!=11) ? "st" : (n%10==2 && n!=12) ? "nd" : (n%10==3 && n!=13) ? "rd" : "th";
+         document.getElementById("today").innerHTML = days[d.getDay()] + ", " + mons[d.getMonth()] + " " + n + s + ", " + d.getFullYear();
+       </script>
+       </div>
+      <!-- Registration form table: Patient Registration-->
+     <div id="main">
+       <h2>Patient Registration</h2>
+       <form action="thankyou.html">
+         <table>
+
+           <!-- name: first, middle initial, last on one line -->
+           <tr>
+             <td class="label">First Name</td>
+             <td><input type="text" name="fname" maxlength="30" required></td>
+             <td class="label">M.I.</td>
+             <td><input type="text" name="mi" maxlength="1" size="2"></td>
+             <td class="label">Last Name</td>
+             <td><input type="text" name="lname" maxlength="30" required></td>
+           </tr>
+           <tr>
+             <td class="label">Date of Birth</td>
+             <td colspan="5"><input type="text" name="dob" maxlength="10" placeholder="MM/DD/YYYY" pattern="(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/[0-9]{4}" required></td>
+           </tr>
+           <tr>
+             <td class="label">Social Security</td>
+             <td colspan="5"><input type="password" name="ssn" minlength="9" maxlength="11" pattern="[0-9]{3}-?[0-9]{2}-?[0-9]{4}" required></td>
+           </tr>
+
+           <!-- address -->
+           <tr>
+             <td class="label">Address Line 1</td>
+             <td colspan="5"><input type="text" name="addr1" maxlength="30" size="35" required></td>
+           </tr>
+           <tr>
+             <td class="label">Address Line 2</td>
+             <td colspan="5"><input type="text" name="addr2" maxlength="30" size="35"></td>
+           </tr>
+           <!-- city -->
+           <tr>
+             <td class="label">City</td>
+             <td><input type="text" name="city" maxlength="30" required></td>
+             <!-- state dropdown -->
+             <td class="label">State</td>
+             <td>
+               <select name="state" required>
+                 <option value="">-- Select --</option>
+                 <option value="AL">Alabama</option>
+                 <option value="AK">Alaska</option>
+                 <option value="AZ">Arizona</option>
+                 <option value="AR">Arkansas</option>
+                 <option value="CA">California</option>
+                 <option value="CO">Colorado</option>
+                 <option value="CT">Connecticut</option>
+                 <option value="DE">Delaware</option>
+                 <option value="DC">District of Columbia</option>
+                 <option value="FL">Florida</option>
+                 <option value="GA">Georgia</option>
+                 <option value="HI">Hawaii</option>
+                 <option value="ID">Idaho</option>
+                 <option value="IL">Illinois</option>
+                 <option value="IN">Indiana</option>
+                 <option value="IA">Iowa</option>
+                 <option value="KS">Kansas</option>
+                 <option value="KY">Kentucky</option>
+                 <option value="LA">Louisiana</option>
+                 <option value="ME">Maine</option>
+                 <option value="MD">Maryland</option>
+                 <option value="MA">Massachusetts</option>
+                 <option value="MI">Michigan</option>
+                 <option value="MN">Minnesota</option>
+                 <option value="MS">Mississippi</option>
+                 <option value="MO">Missouri</option>
+                 <option value="MT">Montana</option>
+                 <option value="NE">Nebraska</option>
+                 <option value="NV">Nevada</option>
+                 <option value="NH">New Hampshire</option>
+                 <option value="NJ">New Jersey</option>
+                 <option value="NM">New Mexico</option>
+                 <option value="NY">New York</option>
+                 <option value="NC">North Carolina</option>
+                 <option value="ND">North Dakota</option>
+                 <option value="OH">Ohio</option>
+                 <option value="OK">Oklahoma</option>
+                 <option value="OR">Oregon</option>
+                 <option value="PA">Pennsylvania</option>
+                 <option value="PR">Puerto Rico</option>
+                 <option value="RI">Rhode Island</option>
+                 <option value="SC">South Carolina</option>
+                 <option value="SD">South Dakota</option>
+                 <option value="TN">Tennessee</option>
+                 <option value="TX">Texas</option>
+                 <option value="UT">Utah</option>
+                 <option value="VT">Vermont</option>
+                 <option value="VA">Virginia</option>
+                 <option value="WA">Washington</option>
+                 <option value="WV">West Virginia</option>
+                 <option value="WI">Wisconsin</option>
+                 <option value="WY">Wyoming</option>
+               </select>
+             </td>
+             <!-- zip code -->
+             <td class="label">Zip Code</td>
+             <td><input type="text" name="zip" minlength="5" maxlength="10" size="10" pattern="[0-9]{5}(-[0-9]{4})?" required></td>
+           </tr>
+
+           <!-- email -->
+           <tr>
+             <td class="label">Email Address</td>
+             <td colspan="5"><input type="email" name="email" size="35" placeholder="name@domain.com" required></td>
+           </tr>
+
+           <!-- text area: ask user about the symptoms -->
+           <tr>
+             <td class="label">Describe your current symptoms</td>
+             <td colspan="5"><textarea name="symptoms" rows="3" cols="50"></textarea></td>
+           </tr>
+           <!-- boxes to check: asking about symptom types-->
+           <tr>
+             <td class="label">Check all that apply. Have you had:</td>
+             <td colspan="5">
+               <input type="checkbox" name="history" value="fever">Fever<br>
+               <input type="checkbox" name="history" value="chills">Chills<br>
+               <input type="checkbox" name="history" value="headaches">Headaches<br>
+               <input type="checkbox" name="history" value="soreness">Soreness<br>
+               <input type="checkbox" name="history" value="cramps">Cramps
+             </td>
+           </tr>
+           <!-- radio buttons for the gender, medication, and cancer-->
+           <tr>
+             <td class="label">Gender</td>
+             <td colspan="5">
+               <input type="radio" name="gender" value="male" required> Male
+               <input type="radio" name="gender" value="female"> Female
+               <input type="radio" name="gender" value="other"> Other
+             </td>
+           </tr>
+           <tr>
+             <td class="label">Are you currently taking any medications?</td>
+             <td colspan="5">
+               <input type="radio" name="medication" value="yes" required> Yes
+               <input type="radio" name="medication" value="no"> No
+             </td>
+           </tr>
+           <tr>
+             <td class="label">Do you or anyone in your family have a history of cancer?</td>
+             <td colspan="5">
+               <input type="radio" name="cancer" value="yes" required> Yes
+               <input type="radio" name="cancer" value="no"> No
+             </td>
+           </tr>
+           <!-- slide bar to check how the patient is doing-->
+           <tr>
+             <td class="label">How are you feeling on a scale of 1 to 10?</td>
+             <td colspan="5">
+               1 <input type="range" name="health" min="1" max="10" value="5" oninput="out.value=this.value"> 10
+               <output id="out">5</output>
+             </td>
+           </tr>
+
+           <!-- account -->
+           <tr>
+             <td class="label">Desired User ID</td>
+             <td colspan="5"><input type="text" name="userid" maxlength="20" required></td>
+           </tr>
+           <tr>
+             <!-- box for the passwords -->
+             <td class="label">Password</td>
+             <td colspan="5"><input type="password" name="pw1" required></td>
+           </tr>
+           <tr>
+             <td class="label">Re-enter Password</td>
+             <td colspan="5"><input type="password" name="pw2" required></td>
+           </tr>
+
+           <!-- buttons to reset the form -->
+           <tr>
+             <td></td>
+             <td colspan="5">
+               <input type="reset" value="Clear and Restart">
+               <input type="submit" value="Submit">
+             </td>
+           </tr>
+         </table>
+       </form>
+     </div>
+     <!-- footer -->
+     <div id="footer">
+       <table width="100%">
+         <tr>
+           <td>Sugarland Medical<br>PO BOX 12345<br>Sugar Land TX 77496</td>
+           <td><a class="btn" href="mailto:contact@sugarlandmedical.com">CONTACT US</a></td>
+           <td><a href="https://www.facebook.com/">Facebook</a> | <a href="https://twitter.com/">Twitter</a></td>
+         </tr>
+       </table>
+     </div>
    </body>
 </html>
