@@ -1,0 +1,43 @@
+/*
+  Program Name: style.css
+  Author: Tameka Boston
+  Date Created: 2026-10-22
+  Date Last Edited: 2026-11-12
+  Version: 3.0
+  Description: Stylesheet for Sugarland Medical registration
+*/
+
+/* Page background, text and headings */
+body { background-color: #eef6f6; color: #1f3a3a; font-family: Verdana, sans-serif; }
+h1, h2 { font-family: Georgia, serif; color: #0b6e6e; }
+td { padding: 4px 8px; vertical-align: top; }
+
+/* Header, registration form and footer */
+#header { background-color: #0b6e6e; padding: 10px 30px; }
+#header h1 { color: #ffffff; margin: 0; }
+#main { padding: 10px 30px; }
+#footer { background-color: #1f3a3a; color: #eef6f6; padding: 10px 30px; }
+
+/* Form labels, date and contact button */
+.label { text-align: right; font-weight: bold; color: #0b6e6e; }
+.today { text-align: right; color: #ffe8cf; }
+.btn { background-color: #f4a261; color: #1f3a3a; padding: 6px 16px; text-decoration: none; }
+
+/* Reserve space for validation messages below each field */
+.field-error {
+  min-height: 1.1em;
+  font-size: 11px;
+  color: #b00020;
+  max-width: 260px;
+}
+
+/* Highlight the Social Security field */
+input[name="ssn"] { background-color: #fff8e7; }
+
+/* Hyperlink colors */
+a:link { color: #0b6e6e; }
+a:visited { color: #6a4c93; }
+#footer a:link, #footer a:visited { color: #ffd6a5; }
+#footer a.btn:link, #footer a.btn:visited { color: #1f3a3a; }
+
+/* End of style.css */
